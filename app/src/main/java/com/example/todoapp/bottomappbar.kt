@@ -113,7 +113,5 @@ fun bottom(nav:NavController,email:String){
             settings()
         }
         print(innerpadding)
-
-
     }
 }

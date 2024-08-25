@@ -68,21 +68,16 @@ fun LoginScreen(nav: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-
-
         OutlinedTextField(value = password,onValueChange ={
             password = it
         }, label = { Text("Password")},
             visualTransformation = PasswordVisualTransformation())
 
-
-
-
         Spacer(modifier = Modifier.height(16.dp))
 
 
         Button(onClick = {
-            nav.navigate("bottom $email")
+            nav.navigate("bottom/$email")
         }) {
             Text(text = "Login")
         }
