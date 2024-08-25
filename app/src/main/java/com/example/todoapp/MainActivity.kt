@@ -14,27 +14,40 @@ import com.example.todoapp.ui.theme.ToDoAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             ToDoAppTheme {
+                val nav = rememberNavController()
+                NavHost(navController = nav, startDestination ="login" , builder ={
 
-
-
-
-                LoginScreen()
+                    composable("login"){
+                        LoginScreen(nav)
+                    }
+                    composable("home"+"/{email}"){
+                        var email= it.arguments?.getString("email")
+                        HomeScreen(nav,email?:"ali")
+                    }
+                    composable("bottom"+"/{email}"){
+                        var email= it.arguments?.getString("email")
+                        bottom(nav = nav, email =email?:"ali" )
+                    }
+                } )
 
             }
+
+
         }
     }
 }
 
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ToDoAppTheme {
-        LoginScreen()
-
-
-    }
-    }
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    ToDoAppTheme {
+//        LoginScreen()
+//
+//
+//    }
+//    }
