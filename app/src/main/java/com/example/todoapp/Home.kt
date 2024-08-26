@@ -58,8 +58,8 @@ fun HomeScreen(nav:NavController,email:String) {
        var x by remember {
            mutableStateOf(0)
        }
-     var context = LocalContext.current
-    val myDialog = AlertDialog.Builder(context)
+     val context = LocalContext.current
+     val myDialog = AlertDialog.Builder(context)
         Column(
 
             Modifier
@@ -99,7 +99,7 @@ fun HomeScreen(nav:NavController,email:String) {
 
                               }
                               myDialog.setCancelable(true)
-                        var dialog = myDialog.create()
+                        val dialog = myDialog.create()
                         dialog.show()
                               },
                     contentColor = Color.White ,
